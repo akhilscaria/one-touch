@@ -20,7 +20,7 @@
 
         // FEATURE TABS
         const tabs = document.querySelectorAll('.feature-tab');
-        const panels = document.querySelectorAll('.feature-panel');
+        const panels = document.querySelectorAll('.feature-panel, .founders-panel');
 
         tabs.forEach(tab => {
             tab.addEventListener('click', () => {
@@ -38,41 +38,6 @@
             });
         });
 
-        // PRICING TOGGLE
-        const pricingToggle = document.getElementById('pricingToggle');
-        const monthlyLabel = document.getElementById('monthlyLabel');
-        const annualLabel = document.getElementById('annualLabel');
-        const priceValues = document.querySelectorAll('.pricing-value');
-        const pricePeriods = document.querySelectorAll('.pricing-period[data-annual-total]');
-        let isAnnual = false;
-
-        pricingToggle.addEventListener('click', () => {
-            isAnnual = !isAnnual;
-            pricingToggle.classList.toggle('annual', isAnnual);
-            monthlyLabel.classList.toggle('active', !isAnnual);
-            annualLabel.classList.toggle('active', isAnnual);
-
-            priceValues.forEach(el => {
-                const newVal = el.dataset[isAnnual ? 'annual' : 'monthly'];
-                // Skip animation for FREE label
-                if (newVal === 'FREE') return;
-
-                el.classList.add('changing');
-                setTimeout(() => {
-                    el.textContent = newVal;
-                    el.classList.remove('changing');
-                }, 180);
-            });
-
-            pricePeriods.forEach(el => {
-                if (isAnnual) {
-                    const total = el.dataset.annualTotal;
-                    el.innerHTML = 'per month <span class="period-yearly">($' + total + ' per year)</span>';
-                } else {
-                    el.innerHTML = el.dataset.monthly;
-                }
-            });
-        });
 
         // COUNTER ANIMATION
         function animateCounter(el) {
