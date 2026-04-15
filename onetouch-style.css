@@ -17,8 +17,8 @@
             --surface-1: #26262D;
             --surface-2: #2E2E36;
             --surface-3: #36363F;
-            --accent: #FF6B6B;
-            --accent-light: #FF9B9B;
+            --accent: #FF7A5C;
+            --accent-light: #fd9c87;
             --accent-glow: rgba(255, 107, 107, 0.35);
             --accent-soft: rgba(255, 107, 107, 0.08);
             --accent-border: rgba(255, 107, 107, 0.25);
@@ -166,7 +166,7 @@
         }
 
         .btn-primary:hover {
-            background: #FF8585;
+            background: #FF7A5C;
             box-shadow: 0 0 36px var(--accent-glow),
                         0 1px 0 rgba(255,255,255,0.15) inset;
             transform: translateY(-1px);
@@ -297,7 +297,7 @@
         }
 
         .gradient-text {
-            background: linear-gradient(135deg, #FFD4D4 0%, var(--accent) 60%, #FF9B9B 100%);
+            background: linear-gradient(135deg, #FFD4D4 0%, var(--accent) 60%, #fb9e89 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -1707,6 +1707,12 @@
             gap: 24px;
         }
 
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
         .template-card {
             background: var(--surface-1);
             border: 1px solid var(--border-subtle);
@@ -1858,7 +1864,7 @@
 
         /* Responsive */
         @media (max-width: 1024px) {
-            .templates-grid {
+            .templates-grid, .products-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
@@ -1868,13 +1874,13 @@
                 padding: 130px 0 60px;
             }
 
-            .templates-grid {
+            .templates-grid, .products-grid {
                 grid-template-columns: 1fr;
                 max-width: 480px;
                 margin: 0 auto;
             }
 
-            .founders-panel, .founders-panel.active {
+            .founders-panel, .founders-panel.active, .products-panel {
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
@@ -1882,4 +1888,26 @@
 
         .feature-visual .feature-image{
             width: 100%;
+        }
+
+        .btn.submit-contact-form{
+            width: 100%;
+        }
+
+        .pricing-section{
+            padding: 120px 0px 0px;
+        }
+
+        .section-products{
+            padding: 120px 0px 0px;
+        }
+        
+        .products-panel { 
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            justify-content: center;   
+            align-content: center;     
+            max-width: 1000px;         
+            margin: 0 auto;            
         }
